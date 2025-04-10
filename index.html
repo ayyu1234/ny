@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STAR ENGINEERING | Iron & Steel Suppliers in India</title>
+  <meta name="description" content="STAR ENGINEERING is a leading supplier of premium iron and steel products including I Beams, TMT Bars, Channels, Plates, and Pipes across India. Trusted quality since inception.">
+  <meta name="keywords" content="Iron and steel suppliers, TMT Bars, I Beam, Steel Channel, MS Plates, Chequered Plate, Buy steel online India">
+  <meta name="author" content="STAR ENGINEERING">
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #4d0b0b, #000000);
+      transition: background 0.3s ease-in-out;
+      scroll-behavior: smooth;
+      animation: gradientMove 10s ease infinite;
+      overflow-y: auto;
+    }
+    nav {
+      background-color: #660000;
+      transition: all 0.3s ease-in-out;
+    }
+    .nav-link, .nav-btn, .dropdown-content a {
+      transition: all 0.3s ease-in-out;
+      padding: 0.4rem 0.75rem;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    .nav-link:hover, .nav-btn:hover, .dropdown-content a:hover {
+      background-color: white;
+      color: #660000 !important;
+      transform: scale(1.05);
+    }
+    .more-btn {
+      background-color: #660000;
+      color: white;
+    }
+    .more-btn:hover {
+      background-color: white;
+      color: #660000 !important;
+      transform: scale(1.05);
+    }
+    .dropdown-content {
+      display: none;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+    }
+    .dropdown.open .dropdown-content {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card-glass {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1.25rem;
+      padding: 1.8rem;
+      color: #fff;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15);
+      will-change: transform;
+    }
+    .card-glass:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <!-- Navbar -->
+  <nav class="shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center space-x-3">
+          <img src="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png" class="h-10 w-auto" alt="Logo">
+          <h1 class="text-xl font-bold text-white animate-pulse">STAR ENGINEERING</h1>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-6 items-center text-white font-medium">
+          <a href="https://stareng.co.in" class="nav-link">Home</a>
+          <a href="/about/" class="nav-link">About</a>
+          <a href="/products/" class="nav-link">Products</a>
+          <div class="relative dropdown">
+            <button onclick="toggleDropdown()" class="nav-link more-btn focus:outline-none">More ▾</button>
+            <div id="dropdownContent" class="dropdown-content absolute right-0 mt-2 w-56 text-white p-2 shadow z-10">
+              <a href="/contact/" class="block nav-btn">Contact</a>
+              <a href="/terms/" class="block nav-btn">Terms & Conditions</a>
+              <a href="/privacy/" class="block nav-btn">Privacy Policy</a>
+              <a href="/business/" class="block nav-btn">Business Policy</a>
+              <a href="/cancellation/" class="block nav-btn">Cancellation Policy</a>
+              <a href="/feedback/" class="block nav-btn">Feedback</a>
+            </div>
+          </div>
+          <a href="/login/" class="nav-link bg-red-700 hover:bg-white hover:text-red-800 transition">Login</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button onclick="toggleMobileMenu()" class="text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden px-4 pb-4">
+      <a href="https://stareng.co.in" class="block nav-link">Home</a>
+      <a href="/about/" class="block nav-link">About</a>
+      <a href="/products/" class="block nav-link">Products</a>
+      <a href="/contact/" class="block nav-link">Contact</a>
+      <a href="/terms/" class="block nav-link">Terms & Conditions</a>
+      <a href="/privacy/" class="block nav-link">Privacy Policy</a>
+      <a href="/business/" class="block nav-link">Business Policy</a>
+      <a href="/cancellation/" class="block nav-link">Cancellation Policy</a>
+      <a href="/feedback/" class="block nav-link">Feedback</a>
+      <a href="/login/" class="block nav-link bg-red-700 hover:bg-white hover:text-red-800 transition mt-2">Login</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="text-center py-16 px-4" data-aos="fade-down">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-white to-red-500 drop-shadow-xl animate-pulse">
+        Welcome to STAR ENGINEERING
+      </h2>
+      <h3 class="text-xl font-semibold text-red-200 mb-6 tracking-wide">
+        Where Strength Meets Innovation
+      </h3>
+      <p class="text-lg text-gray-200 leading-relaxed">
+        Step into the world of STAR ENGINEERING — your trusted partner for premium iron and steel solutions. We specialize in delivering high-quality structural materials like I Beams, TMT Bars, Angles, Channels, and more to power India’s infrastructure and construction needs. With a perfect blend of strength, precision, and innovation, we ensure that every product adds lasting value to your project. Backed by industry experience and customer trust, STAR ENGINEERING is more than just a supplier — we’re your growth partner in building a stronger tomorrow. Experience quality, service, and strength — all in one place.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-16 px-4" id="why">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10 text-red-300">Why Should You Choose Us?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Card Blocks -->
+        <div class="card-glass" data-tilt data-aos="fade-up">🌟 10+ years delivering top-notch products across India.</div>
+        <div class="card-glass" data-tilt data-aos="fade-up">🚚 On-time delivery with robust logistics.</div>
+        <div class="card-glass" data-tilt data-aos="fade-up">📦 Triple-checked products before dispatch.</div>
+        <div class="card-glass" data-tilt data-aos="fade-up">📞 Dedicated support team throughout the process.</div>
+        <div class="card-glass" data-tilt data-aos="fade-up">💰 Competitive pricing with quality assurance.</div>
+        <div class="card-glass" data-tilt data-aos="fade-up">🔧 Custom solutions for any project.</div>
+        <div class="card-glass" data-tilt data-aos="fade-up">🌿 Eco-friendly practices for a greener future.</div>
+        <div class="card-glass" data-tilt data-aos="fade-up">🏗️ Bulk and urgent orders handled efficiently.</div>
+        <div class="card-glass" data-tilt data-aos="fade-up">🔍 Transparent billing and pricing.</div>
+        <div class="card-glass" data-tilt data-aos="fade-up">🤝 Trusted by 1000+ happy customers.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-6 text-center mt-10">
+    <p>&copy; 2025 STAR ENGINEERING. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      once: true,
+      mirror: false,
+      delay: 50,
+      offset: 100
+    });
+  
+    // Load VanillaTilt only for larger screens
+    if (window.innerWidth > 768) {
+      VanillaTilt.init(document.querySelectorAll(".card-glass"), {
+        max: 10,
+        speed: 300,
+        scale: 1.02,
+        glare: false,  // Disabling glare to reduce GPU load
+      });
+    }
+  
+    function toggleDropdown() {
+      const dropdown = document.querySelector('.dropdown');
+      dropdown.classList.toggle('open');
+    }
+  
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("hidden");
+    }
+  </script>
+  
+  
+  </body>
+  </html>

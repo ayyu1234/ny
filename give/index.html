@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Give Review - Star Engineering</title>
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #1a0000, #4d0000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .container {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      width: 70%;
+      max-width: 420px;
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input, textarea {
+      width: 95%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      font-size: 15px;
+      outline: none;
+      font-family: Arial, sans-serif;
+    }
+
+    textarea { resize: vertical; }
+
+    .star-rating {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      font-size: 50px;
+      gap: 5px;
+    }
+
+    .star {
+      cursor: pointer;
+      color: #777;
+      transition: all 0.2s ease;
+    }
+
+    .star.selected, .star:hover {
+      color: gold;
+      transform: scale(1.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background: #cc0000;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      position: relative;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .submit-btn:hover {
+      background: #b30000;
+    }
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: none;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: lightgreen;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="formContainer">
+    <h2>Give Your Review</h2>
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="tel" id="phone" placeholder="Phone Number" maxlength="10" required>
+
+    <div class="star-rating" id="starRating">
+      <span class="star" data-value="1">★</span>
+      <span class="star" data-value="2">★</span>
+      <span class="star" data-value="3">★</span>
+      <span class="star" data-value="4">★</span>
+      <span class="star" data-value="5">★</span>
+    </div>
+
+    <textarea id="feedback" placeholder="Write your feedback..." rows="4" required></textarea>
+
+    <button class="submit-btn" id="submitBtn" onclick="submitReview()">
+      <span id="submitText">Submit</span>
+      <div class="spinner" id="spinner"></div>
+    </button>
+
+    <div class="thank-you" id="thankYou">✅ Thank you for your feedback!</div>
+  </div>
+
+  <!-- Firebase Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAgchK8s_Ojaq3OYZLnF-qJSiU9eB1TxXU",
+      authDomain: "feedback-93d22.firebaseapp.com",
+      projectId: "feedback-93d22",
+      storageBucket: "feedback-93d22.appspot.com",
+      messagingSenderId: "16023108940",
+      appId: "1:16023108940:web:964d050b1264ed695563e9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const stars = document.querySelectorAll('.star');
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('click', function () {
+        selectedRating = this.getAttribute('data-value');
+        stars.forEach(s => s.classList.remove('selected'));
+        for (let i = 0; i < selectedRating; i++) {
+          stars[i].classList.add('selected');
+        }
+      });
+    });
+
+    window.submitReview = async () => {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const feedback = document.getElementById('feedback').value.trim();
+      const thankYou = document.getElementById('thankYou');
+      const spinner = document.getElementById('spinner');
+      const submitText = document.getElementById('submitText');
+
+      if (!name || !email || !phone || !feedback || selectedRating === 0) {
+        alert("Please fill all fields and select a rating.");
+        return;
+      }
+
+      spinner.style.display = 'block';
+      submitText.style.display = 'none';
+
+      try {
+        await addDoc(collection(db, "feedbacks"), {
+          name,
+          email,
+          phone,
+          rating: selectedRating,
+          feedback,
+          timestamp: new Date()
+        });
+
+        thankYou.style.display = 'block';
+
+        // Clear fields
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('feedback').value = '';
+        selectedRating = 0;
+        stars.forEach(s => s.classList.remove('selected'));
+
+        spinner.style.display = 'none';
+        submitText.style.display = 'block';
+
+        // Redirect after 1 second
+        setTimeout(() => {
+          window.location.href = '/feedback/index.html';
+        }, 1000);
+
+      } catch (error) {
+        alert("Error submitting review. Please try again.");
+        console.error(error);
+        spinner.style.display = 'none';
+        submitText.style.display = 'block';
+      }
+    };
+  </script>
+</body>
+</html>

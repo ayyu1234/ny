@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BHIM UPI Payment - STAR ENGINEERING</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:linear-gradient(to bottom, #4d0b0b, #000000);
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        .container {
+            max-width: 350px;
+            margin: auto;
+            background: rgba(255, 233, 233, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .upi-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+        .upi-box span {
+            font-weight: bold;
+            color: #333;
+        }
+        .upi-id {
+            flex-grow: 1;
+            margin-left: 10px;
+            font-size: 16px;
+            color: #b30000;
+        }
+        .copy-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+            min-width: 65px;
+        }
+        .copy-btn.copied {
+            background: #ff9800;
+            color: white;
+        }
+        .qr-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .qr-container img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 10px;
+}
+
+        .verified-message {
+            margin-top: 10px;
+            padding: 8px;
+            background: #d4edda;
+            color: #155724;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            color: #b30000;
+            border: 2px solid #b30000;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background: #b30000;
+            color: white;
+        }
+        h2 {
+            color: #fffcfc;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function copyUPI() {
+            const upiId = "9702485922@ptaxis";
+            const copyBtn = document.getElementById("copy-btn");
+
+            navigator.clipboard.writeText(upiId).then(() => {
+                copyBtn.innerText = "Copied";
+                copyBtn.classList.add("copied");
+
+                setTimeout(() => {
+                    copyBtn.innerText = "Copy";
+                    copyBtn.classList.remove("copied");
+                }, 2000);
+            }).catch(err => console.log("Copy failed", err));
+        }
+    </script>
+</head>
+<body>
+    <h2 align="center"><img src="https://i.postimg.cc/VNBcScMf/output-onlinepngtools.png" alt="BHIM UPI" style="width: 30px; vertical-align: middle;"> BHIM UPI</h2>
+    <div class="container">
+        <label>UPI ID:</label>
+        <div class="upi-box">
+            <span class="upi-id">9702485922@ptaxis</span>
+            <button id="copy-btn" class="copy-btn" onclick="copyUPI()">Copy</button>
+        </div>
+        <div class="qr-container">
+            <img src="https://i.postimg.cc/KYd84HLW/upi-1743410158363-1.png" alt="UPI QR Code">
+            <div class="verified-message">✔ Secure & Verified Details</div>
+        </div>
+    </div>
+</body>
+</html>

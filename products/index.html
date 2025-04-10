@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Products | STAR ENGINEERING Iron & Steel Solutions</title>
+<meta name="description" content="Explore 20+ high-quality iron and steel products at STAR ENGINEERING. From I Beams to AC Sheets, we provide customizable lengths and bulk orders across India.">
+<meta name="keywords" content="I Beam, L Angle, Steel Channel, Profile Sheet, AC Sheets, TMT Bars, Buy Steel Products Online, Custom steel length India">
+<meta name="author" content="STAR ENGINEERING">
+
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #4d0b0b, #000000);
+      color: white;
+    }
+      nav {
+      background-color: #660000;
+    }
+    .nav-link, .nav-btn, .dropdown-content a {
+      transition: all 0.3s ease;
+      padding: 0.4rem 0.75rem;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    .nav-link:hover, .nav-btn:hover, .dropdown-content a:hover {
+      background-color: white;
+      color: #660000 !important;
+      transform: scale(1.05);
+    }
+    .more-btn {
+      background-color: #660000;
+      color: white;
+    }
+    .more-btn:hover {
+      background-color: white;
+      color: #660000 !important;
+      transform: scale(1.05);
+    }
+    .dropdown-content {
+      display: none;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+    }
+    .dropdown.open .dropdown-content {
+      display: block;
+    
+    }
+    .product-card {
+      perspective: 1000px;
+      transition: all 0.4s ease-in-out;
+    }
+    .product-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+    .product-card:hover .product-inner {
+      transform: rotateY(180deg);
+    }
+    .product-front, .product-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 1rem;
+    }
+    .product-front {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1rem;
+    }
+    .product-back {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1.5rem;
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+ <!-- Navbar -->
+ <nav class="shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between h-16 items-center">
+      <div class="flex items-center space-x-3">
+        <img src="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png" class="h-10 w-auto" alt="Logo">
+        <h1 class="text-xl font-bold text-white animate-pulse">STAR ENGINEERING</h1>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6 items-center text-white font-medium">
+        <a href="https://stareng.co.in" class="nav-link">Home</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/products/" class="nav-link">Products</a>
+        <div class="relative dropdown">
+          <button onclick="toggleDropdown()" class="nav-link more-btn focus:outline-none">More ▾</button>
+          <div id="dropdownContent" class="dropdown-content absolute right-0 mt-2 w-56 text-white p-2 shadow z-10">
+            <a href="/contact/" class="block nav-btn">Contact</a>
+            <a href="/terms/" class="block nav-btn">Terms & Conditions</a>
+            <a href="/privacy/" class="block nav-btn">Privacy Policy</a>
+            <a href="/business/" class="block nav-btn">Business Policy</a>
+            <a href="/cancellation/" class="block nav-btn">Cancellation Policy</a>
+            <a href="/feedback/" class="block nav-btn">Feedback</a>
+          </div>
+        </div>
+        <a href="/login/" class="nav-link bg-red-700 hover:bg-white hover:text-red-800 transition">Login</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button onclick="toggleMobileMenu()" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="md:hidden hidden px-4 pb-4">
+    <a href="https://stareng.co.in" class="block nav-link">Home</a>
+    <a href="/about/" class="block nav-link">About</a>
+    <a href="/products/" class="block nav-link">Products</a>
+    <a href="/contact/" class="block nav-link">Contact</a>
+    <a href="/terms/" class="block nav-link">Terms & Conditions</a>
+    <a href="/privacy/" class="block nav-link">Privacy Policy</a>
+    <a href="/business/" class="block nav-link">Business Policy</a>
+    <a href="/cancellation/" class="block nav-link">Cancellation Policy</a>
+    <a href="/feedback/" class="block nav-link">Feedback</a>
+    <a href="/login/" class="block nav-link bg-red-700 hover:bg-white hover:text-red-800 transition mt-2">Login</a>
+  </div>
+</nav>
+  <!-- Products Section -->
+  <section class="py-16 px-4">
+    <div class="text-center mb-12" data-aos="fade-down">
+      <h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-white to-red-500 animate-pulse drop-shadow">Our Iron & Steel Products</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 max-w-7xl mx-auto">
+      
+      <!-- M.S. I BEAM -->
+      <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+        <div class="product-inner w-full h-full">
+          <div class="product-front text-white p-4 rounded-xl shadow-lg">
+            <img src="https://i.postimg.cc/XNLSjTrc/beam.jpg" alt="M.S. I BEAM" class="rounded-xl h-40 w-full object-cover mb-3">
+            <h3 class="text-lg font-bold">M.S. I BEAM</h3>
+            <p class="text-sm mt-1">Heavy-load structural beams for construction and infrastructure.</p>
+          </div>
+          <div class="product-back flex flex-col justify-between">
+            <div>
+              <h4 class="text-xl font-bold mb-2 text-red-400">M.S. I BEAM</h4>
+              <p class="text-sm mb-2">I Beams provide strength and stability for columns, bridges, and building frames.</p>
+              <h5 class="font-semibold">Available Sizes:</h5>
+              <ul class="text-sm list-disc list-inside">
+                <li>Dimensions: 100mm to 600mm</li>
+                <li>Length: 6m to 12m</li>
+                <br><h2><strong>Price:</strong> ₹ 67,250 per MT. (Inc. of all taxes)</h2></br>
+              </ul>
+            </div>
+            <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- C CHANNEL -->
+      <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+        <div class="product-inner w-full h-full">
+          <div class="product-front text-white p-4 rounded-xl shadow-lg">
+            <img src="https://i.postimg.cc/141NYfDw/cchannel.jpg" alt="C CHANNEL" class="rounded-xl h-40 w-full object-cover mb-3">
+            <h3 class="text-lg font-bold">C CHANNEL</h3>
+            <p class="text-sm mt-1">Strong and reliable for support, partitions & framework.</p>
+          </div>
+          <div class="product-back flex flex-col justify-between">
+            <div>
+              <h4 class="text-xl font-bold mb-2 text-red-400">C CHANNEL</h4>
+              <p class="text-sm mb-2">MS C Channels offer high strength in construction and heavy structure work.</p>
+              <h5 class="font-semibold">Available Sizes:</h5>
+              <ul class="text-sm list-disc list-inside">
+                <li>Dimensions: 75mm to 400mm</li>
+                <li>Length: 6m & 12m</li>
+                <br><h2><strong>Price:</strong> ₹ 67,250 per MT. (Inc. of all taxes)</h2></br>
+              </ul>
+            </div>
+            <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- L ANGLE -->
+      <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+        <div class="product-inner w-full h-full">
+          <div class="product-front text-white p-4 rounded-xl shadow-lg">
+            <img src="https://i.postimg.cc/W32TNrPX/langle.jpg" alt="L ANGLE" class="rounded-xl h-40 w-full object-cover mb-3">
+            <h3 class="text-lg font-bold">L ANGLE</h3>
+            <p class="text-sm mt-1">Versatile structural support for framing and fabrication.</p>
+          </div>
+          <div class="product-back flex flex-col justify-between">
+            <div>
+              <h4 class="text-xl font-bold mb-2 text-red-400">L ANGLE</h4>
+              <p class="text-sm mb-2">MS L Angles are used in frames, sheds, towers, and machinery support.</p>
+              <h5 class="font-semibold">Available Sizes:</h5>
+              <ul class="text-sm list-disc list-inside">
+                <li>Dimensions: 25mm to 100mm</li>
+                <li>Thickness: 3mm to 10mm</li>
+                <br><h2><strong>Price:</strong> ₹ 67,250 per MT. (Inc. of all taxes)</h2></br>
+              </ul>
+            </div>
+            <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- T ANGLE -->
+    <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+        <div class="product-inner w-full h-full">
+          <div class="product-front text-white p-4 rounded-xl shadow-lg">
+            <img src="https://i.postimg.cc/c1Rk7jwg/tangle.jpg" alt="T ANGLE" class="rounded-xl h-40 w-full object-cover mb-3">
+            <h3 class="text-lg font-bold">T ANGLE</h3>
+            <p class="text-sm mt-1">Perfect for fabrication, gates, and reinforcement joints.</p>
+          </div>
+          <div class="product-back flex flex-col justify-between">
+            <div>
+              <h4 class="text-xl font-bold mb-2 text-red-400">T ANGLE</h4>
+              <p class="text-sm mb-2">T Bars offer support and shape retention in structural frames.</p>
+              <h5 class="font-semibold">Available Sizes:</h5>
+              <ul class="text-sm list-disc list-inside">
+                <li>Dimensions: 25mm to 75mm</li>
+                <li>Thickness: 3mm to 8mm</li>
+                <br><h2><strong>Price:</strong> ₹ 68,250 per MT. (Inc. of all taxes)</h2></br>
+              </ul>
+            </div>
+            <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Sheet -->
+      <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+        <div class="product-inner w-full h-full">
+          <div class="product-front text-white p-4 rounded-xl shadow-lg">
+            <img src="https://i.postimg.cc/6qPjMxHZ/profle.jpg" alt="PROFLE SHEETS" class="rounded-xl h-40 w-full object-cover mb-3">
+            <h3 class="text-lg font-bold">PROFILE SHEETS</h3>
+            <p class="text-sm mt-1">Great for roofing, truss construction, and edge finishes.</p>
+          </div>
+          <div class="product-back flex flex-col justify-between">
+            <div>
+              <h4 class="text-xl font-bold mb-2 text-red-400">PROFILE SHEETS</h4>
+              <p class="text-sm mb-2">Widely used in industrial and residential buildings.</p>
+              <h5 class="font-semibold">Available Sizes:</h5>
+              <ul class="text-sm list-disc list-inside">
+                <li>Thickness: 0.30mm to 0.60mm</li>
+                <li>Width: 2.5 ft to 3.5 ft</li>
+                <li>Length: 6 ft to 24 ft</li>
+                <li>Color: Red, Blue, Green & more</li>
+                <br><h2><strong>Price:</strong> ₹ 94,500 per M.T. (Inc. of all taxes)</h2>
+              </ul>
+            </div>
+            <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AC SHEETS -->
+      <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+        <div class="product-inner w-full h-full">
+          <div class="product-front text-white p-4 rounded-xl shadow-lg">
+            <img src="https://i.postimg.cc/qvxYdSqP/acsheets.jpg" alt="AC SHEETS" class="rounded-xl h-40 w-full object-cover mb-3">
+            <h3 class="text-lg font-bold">AC SHEETS</h3>
+            <p class="text-sm mt-1">Durable and cost-effective roofing sheets for long-term protection.</p>
+          </div>
+          <div class="product-back flex flex-col justify-between">
+            <div>
+              <h4 class="text-xl font-bold mb-2 text-red-400">AC SHEETS</h4>
+              <p class="text-sm mb-2">AC Sheets are durable, weatherproof, and ideal for economical roofing.</p>
+              <h5 class="font-semibold">Available Sizes:</h5>
+              <ul class="text-sm list-disc list-inside">
+                <li>Thickness: 6mm to 8mm</li>
+                <li>Width: 1.0 m approx</li>
+                <li>Length: 6 ft to 12 ft</li>
+                <li>Type: Plain & Corrugated</li>
+                <br><h2><strong>Price:</strong> ₹ 700 per 10 feet (Inc. of all taxes) </h2>
+              </ul>
+            </div>
+            <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+          <!-- TMT BARS -->
+          <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+            <div class="product-inner w-full h-full">
+              <div class="product-front text-white p-4 rounded-xl shadow-lg">
+                <img src="https://i.postimg.cc/SNpDNdBk/tmmmt.jpg" alt="TMT BARS" class="rounded-xl h-40 w-full object-cover mb-3">
+                <h3 class="text-lg font-bold">TMT BARS</h3>
+                <p class="text-sm mt-1">High-strength bars for durable and earthquake-resistant construction.</p>
+              </div>
+              <div class="product-back flex flex-col justify-between">
+                <div>
+                  <h4 class="text-xl font-bold mb-2 text-red-400">TMT BARS</h4>
+                  <p class="text-sm mb-2">TMT Bars provide superior strength, flexibility, and corrosion resistance for all structural needs.</p>
+                  <h5 class="font-semibold">Available Sizes:</h5>
+                  <ul class="text-sm list-disc list-inside">
+                    <li>8mm to 32mm diameter</li>
+                    <li>12m standard length</li>
+                    <li>Grades: Fe500, Fe550</li>
+
+                    <br><h2><strong>Price:</strong> ₹ 61,360 per MT. (Inc. of all taxes)</h2>
+                   </ul>
+                </div>
+                <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!--Chequered Plates-->
+          <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+            <div class="product-inner w-full h-full">
+              <div class="product-front text-white p-4 rounded-xl shadow-lg">
+                <img src="https://i.postimg.cc/1RgDhF4P/chq.jpg" alt="CHEQUERED PLATES" class="rounded-xl h-40 w-full object-cover mb-3">
+                <h3 class="text-lg font-bold">CHEQUERED PLATES</h3>
+                <p class="text-sm mt-1">Slip-resistant and durable plates for flooring and industrial use.</p>
+              </div>
+              <div class="product-back flex flex-col justify-between">
+                <div>
+                  <h4 class="text-xl font-bold mb-2 text-red-400">CHEQUERED PLATES</h4>
+                  <p class="text-sm mb-2">Chequered plates offer strength, grip, and durability for safe and heavy-duty surfaces.</p>
+                  <h5 class="font-semibold">Available Sizes:</h5>
+                  <ul class="text-sm list-disc list-inside">
+                    <li>Thickness: 2mm to 10mm</li>
+                    <li>Size: 4x8 ft, 5x10 ft (standard)</li>
+                    <li>Material: MS & Galvanized</li>
+
+                    <br><h2><strong>Price:</strong> ₹  per MT. (Inc. of all taxes)</h2>
+                   </ul>
+                </div>
+                <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+            <!--PLATES-->
+            <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+              <div class="product-inner w-full h-full">
+                <div class="product-front text-white p-4 rounded-xl shadow-lg">
+                  <img src="https://i.postimg.cc/7hMK3JF5/mmsmw.jpg" alt="PLATES" class="rounded-xl h-40 w-full object-cover mb-3">
+                  <h3 class="text-lg font-bold">PLATES</h3>
+                  <p class="text-sm mt-1">Heavy-duty flat sheets used for fabrication, construction, and base structures.</p>
+                </div>
+                <div class="product-back flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl font-bold mb-2 text-red-400">PLATES</h4>
+                    <p class="text-sm mb-2">MS Plates are strong, durable, and ideal for structural and industrial applications.</p>
+                    <h5 class="font-semibold">Available Sizes:</h5>
+                    <ul class="text-sm list-disc list-inside">
+                      <li>Thickness: 2mm to 50mm</li>
+                      <li>Size: 150x100mm to 5x10 ft</li>
+                      <li>Length: 6m</li>
+                      <li>Material: MS, SS & HR</li>
+  
+                      <br><h2><strong>Price:</strong> ₹  per MT. (Inc. of all taxes)</h2>
+                     </ul>
+                  </div>
+                  <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+                </div>
+              </div>
+            </div>
+
+          <!--SQUARE PIPES-->
+          <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+            <div class="product-inner w-full h-full">
+              <div class="product-front text-white p-4 rounded-xl shadow-lg">
+                <img src="https://i.postimg.cc/xC5xwzdL/ssq-pipes.jpg" alt="SQUARE PIPES" class="rounded-xl h-40 w-full object-cover mb-3">
+                <h3 class="text-lg font-bold">SQUARE PIPES</h3>
+                <p class="text-sm mt-1">Strong, uniform pipes ideal for frames, fabrication, and structures.</p>
+              </div>
+              <div class="product-back flex flex-col justify-between">
+                <div>
+                  <h4 class="text-xl font-bold mb-2 text-red-400">SQUARE PIPES</h4>
+                  <p class="text-sm mb-2">MS Square Pipes offer strength, precision, and durability for versatile structural use.</p>
+                  <h5 class="font-semibold">Available Sizes:</h5>
+                  <ul class="text-sm list-disc list-inside">
+                    <li>Size: 20x20mm to 100x100mm</li>
+                    <li>Thickness: 1.2mm to 5mm</li>
+                    <li>Length: 6m</li>
+                    <li>Material: MS, SS & GI</li>
+
+                    <br><h2><strong>Price:</strong> ₹  per MT. (Inc. of all taxes)</h2>
+                   </ul>
+                </div>
+                <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+              </div>
+            </div>
+          </div>
+
+            <!--ROUND PIPES-->
+            <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+              <div class="product-inner w-full h-full">
+                <div class="product-front text-white p-4 rounded-xl shadow-lg">
+                  <img src="https://i.postimg.cc/rwJLVKzF/rrr.jpg" alt="ROUND PIPES" class="rounded-xl h-40 w-full object-cover mb-3">
+                  <h3 class="text-lg font-bold">ROUND PIPES</h3>
+                  <p class="text-sm mt-1">Reliable and durable pipes for construction, fabrication & general use.</p>
+                </div>
+                <div class="product-back flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl font-bold mb-2 text-red-400">ROUND PIPES</h4>
+                    <p class="text-sm mb-2">MS Round Pipes provide smooth finish, strength, and flexibility for multiple applications.</p>
+                    <h5 class="font-semibold">Available Sizes:</h5>
+                    <ul class="text-sm list-disc list-inside">
+                      <li>Diameter: 15mm to 100mm</li>
+                      <li>Thickness: 1.2mm to 5mm</li>
+                      <li>Length: 6m</li>
+                      <li>Material: MS, SS & GI</li>
+  
+                      <br><h2><strong>Price:</strong> ₹  per MT. (Inc. of all taxes)</h2>
+                     </ul>
+                  </div>
+                  <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+                </div>
+              </div>
+            </div>
+
+            <!--SQUARE BARS-->
+            <div class="product-card w-72 h-96 mx-auto" data-aos="zoom-in">
+              <div class="product-inner w-full h-full">
+                <div class="product-front text-white p-4 rounded-xl shadow-lg">
+                  <img src="https://i.postimg.cc/Zn0T3TL2/sqbb.jpg" alt="SQUARE BARS" class="rounded-xl h-40 w-full object-cover mb-3">
+                  <h3 class="text-lg font-bold">SQUARE BARS</h3>
+                  <p class="text-sm mt-1">Solid bars for fabrication, grills, support structures & general engineering use.</p>
+                </div>
+                <div class="product-back flex flex-col justify-between">
+                  <div>
+                    <h4 class="text-xl font-bold mb-2 text-red-400">SQUARE BARS</h4>
+                    <p class="text-sm mb-2">MS Square Bars are rigid, durable, and ideal for precise fabrication work.</p>
+                    <h5 class="font-semibold">Available Sizes:</h5>
+                    <ul class="text-sm list-disc list-inside">
+                      <li>Size: 10mm to 50mm</li>
+                      <li>Thickness: 1.2mm to 5mm</li>
+                      <li>Length: 6m</li>
+                      <li>Material: MS & SS</li>
+  
+                      <br><h2><strong>Price:</strong> ₹  per MT. (Inc. of all taxes)</h2>
+                     </ul>
+                  </div>
+                  <a href="/contact/" class="mt-4 bg-red-700 text-white py-2 px-4 rounded-full text-center hover:bg-white hover:text-red-700 transition">Order Now</a>
+                </div>
+              </div>
+            </div>
+    </div>
+  </section>
+
+  <footer class="bg-black text-white py-6 text-center mt-10">
+    <p>&copy; 2025 STAR ENGINEERING. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 600 });
+
+    VanillaTilt.init(document.querySelectorAll(".card-glass"), {
+      max: 15,
+      speed: 500,
+      glare: true,
+      "max-glare": 0.3,
+    });
+
+    function toggleDropdown() {
+      document.querySelector('.dropdown').classList.toggle('open');
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    window.addEventListener('click', function(e) {
+      const dropdown = document.querySelector('.dropdown');
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>

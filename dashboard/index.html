@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - STAR ENGINEERING</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png">
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+      
+        // ✅ Firebase Config
+        const firebaseConfig = {
+          apiKey: "AIzaSyBVgJzqAxA9cWXRVNHGyJpEaFYsdgLYgiU",
+          authDomain: "buyer-dashboard-36fcd.firebaseapp.com",
+          projectId: "buyer-dashboard-36fcd",
+          storageBucket: "buyer-dashboard-36fcd.firebasestorage.app",
+          messagingSenderId: "94813401069",
+          appId: "1:94813401069:web:4f0c22b8e251822b3081e4"
+        };
+      
+        // ✅ Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+      
+        // ✅ Check Login Status
+        onAuthStateChanged(auth, async (user) => {
+  const loader = document.getElementById("loadingScreen");
+  if (user) {
+    try {
+      const userEmail = user.email;
+      const userDocRef = doc(db, "Debtors", userEmail);
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (userDocSnap.exists()) {
+        const userData = userDocSnap.data();
+
+        // Show dashboard data
+        document.getElementById("customerName").innerText = `Welcome, ${userData.name}!`;
+        document.getElementById("message").innerText = `Here is your dashboard showing O/S Balance, Turnover, and Payments.`;
+
+        animateNumber("turnover", userData.turnover || 0, " Dr.");
+        animateNumber("paid", userData.paid || 0, " Cr.");
+        animateNumber("osBalance", userData.os || 0, ` ${userData.s || ''}`);
+
+        document.getElementById("reportButton").onclick = () => {
+          if (userData.link) {
+            window.open(userData.link, '_blank');
+          }
+        };
+      } else {
+        document.getElementById("dashboard").innerHTML = "<p>No data found.</p>";
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      document.getElementById("dashboard").innerHTML = "<p>Error loading dashboard.</p>";
+    } finally {
+      loader.style.display = "none"; // ✅ hide loader
+    }
+  } else {
+    // ❌ Not logged in — redirect to secure login page
+    window.location.href = "https://stareng.co.in/login/index.html";
+  }
+});
+
+      
+        // ✅ Number Animation Function
+        function animateNumber(id, value, suffix = "") {
+          const element = document.getElementById(id);
+          if (!element) return;
+      
+          let start = 0;
+          let end = parseFloat(value) || 0;
+          const duration = 1000; // total animation time
+          const steps = 30;
+          const stepValue = end / steps;
+          let currentStep = 0;
+      
+          const timer = setInterval(() => {
+            currentStep++;
+            const currentValue = Math.round(stepValue * currentStep);
+            element.innerText = `₹ ${currentValue.toLocaleString()}${suffix}`;
+            if (currentStep >= steps) {
+              clearInterval(timer);
+              element.innerText = `₹ ${Math.round(end).toLocaleString()}${suffix}`;
+            }
+          }, duration / steps);
+        }
+      
+        // ✅ Logout Function
+        window.logout = function () {
+          signOut(auth)
+            .then(() => {
+              sessionStorage.clear();
+              window.location.href = "https://stareng.co.in";
+            })
+            .catch((error) => {
+              console.error("Error signing out:", error);
+            });
+        };
+      </script>
+      
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #4d0b0b, #000000);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* from center to top start */
+  overflow-y: auto; /* ✅ allow vertical scroll */
+  padding: 50px 0; /* spacing from top and bottom */
+}
+
+        
+        .container {
+           background: rgba(255, 233, 233, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      width: 340px;
+      height: auto;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+        }
+        h2 {
+            color: #003366;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .highlight-black {
+            color: black;
+            font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+        }
+        .highlight-blue {
+            color: #003366;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .highlight-green {
+            color: #008000;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .highlight-red {
+            color: #FF0000;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .amount {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 20px 0;
+            border: 2px solid darkred;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            background: white;
+            color: #8B0000;
+            border: 2px solid #8B0000;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+          background: darkred;
+            color: white;
+            transform: scale(1.06);
+        }
+        .pay-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 20px 0;
+            border: 2px solid darkred;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: darkred;
+            color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+        .pay-button:hover {
+            background-color: white;
+            color: #8b0000;
+            transform: scale(1.06);
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .logout-btn:hover { 
+          background: white;
+          color: #8b0000;
+            transform: scale(1.06);
+        }
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .home-btn:hover { background: #0056b3; }
+        .line {
+            height: 2px;
+            background-color: red;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+        .gaps {
+            margin-top: 30px;
+        }
+        .gaps-bottom {
+            margin-top: 30px;
+        }
+        .gaps-button {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    <div class="container">
+        <h2 id="customerName"></h2>
+        <p id="message"></p>
+
+        <div class="highlight-black">Turnover</div>
+        <div class="line"></div>
+        <div class="highlight-blue" id="turnover">₹ 0 Dr.</div>
+
+        <div class="gaps"></div>
+
+        <div class="highlight-black">Paid</div>
+        <div class="line"></div>
+        <div class="highlight-green" id="paid">₹ 0 Cr.</div>
+
+        <div class="gaps-bottom"></div>
+
+        <div class="highlight-black">O/S Balance</div>
+        <div class="line"></div>
+        <div class="highlight-red" id="osBalance">₹ 0</div>
+
+        <div class="gaps-button"></div>
+
+        <button id="reportButton" class="button">View Invoice & Ledgers</button>
+        <button class="pay-button" onclick="window.location.href='/payments/'">Pay</button>
+        <button class="button" onclick="window.location.href='/feedback/'">Give Feedback</button>
+    </div>
+</body>
+</html>

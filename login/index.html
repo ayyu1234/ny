@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STAR ENGINEERING - Login</title>
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png">
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBVgJzqAxA9cWXRVNHGyJpEaFYsdgLYgiU",
+      authDomain: "buyer-dashboard-36fcd.firebaseapp.com",
+      projectId: "buyer-dashboard-36fcd",
+      storageBucket: "buyer-dashboard-36fcd.firebasestorage.app",
+      messagingSenderId: "94813401069",
+      appId: "1:94813401069:web:4f0c22b8e251822b3081e4"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    window.handleLogin = async function () {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const loginButton = document.getElementById("login-button");
+      const errorMessage = document.getElementById("error");
+
+      loginButton.innerHTML = '<span class="loader"></span>';
+      loginButton.disabled = true;
+      errorMessage.innerText = "";
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const userDoc = await getDoc(doc(db, "Debtors", email));
+        if (!userDoc.exists()) throw new Error("No account found in database.");
+        window.location.href = "/dashboard/index.html?email=" + encodeURIComponent(email);
+      } catch (error) {
+        errorMessage.innerText = error.message.includes("auth/user-not-found")
+          ? "Invalid email or password"
+          : error.message;
+        loginButton.innerHTML = "Login";
+        loginButton.disabled = false;
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      background: linear-gradient(to bottom, #4d0b0b, #000000);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      background: rgba(255, 233, 233, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      width: 260px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    h2 {
+      color: darkred;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .sub-heading {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #444;
+      font-weight: bold;
+    }
+
+    .custom-text {
+      color: green;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .login-text {
+      color: #003366;
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    input {
+      width: 85%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: darkred;
+      outline: none;
+      box-shadow: 0 0 5px rgba(139, 0, 0, 0.5);
+    }
+
+    button {
+      background: darkred;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      width: 85%;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.2s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #a00000;
+      transform: scale(1.05);
+    }
+
+    button:disabled {
+      background: #a00000;
+      cursor: not-allowed;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .loader {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid white;
+      border-top: 2px solid darkred;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h2>STAR ENGINEERING</h2>
+    <p class="sub-heading">Innovating with quality, delivering with trust.</p>
+    <p class="custom-text">Securely access your account</p>
+    <p class="login-text">Login with your official email.</p>
+    <input type="email" id="email" placeholder="Enter your email">
+    <input type="password" id="password" placeholder="Enter your password">
+    <button id="login-button" onclick="handleLogin()">Login</button>
+    <p id="error" class="error"></p>
+  </div>
+</body>
+</html>

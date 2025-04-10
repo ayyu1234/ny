@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - STAR ENGINEERING</title>
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #4d0b0b, #000000);
+    }
+    nav {
+      background-color: #660000;
+    }
+    .nav-link, .nav-btn, .dropdown-content a {
+      transition: all 0.3s ease;
+      padding: 0.4rem 0.75rem;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    .nav-link:hover, .nav-btn:hover, .dropdown-content a:hover {
+      background-color: white;
+      color: #660000 !important;
+      transform: scale(1.05);
+    }
+    .more-btn {
+      background-color: #660000;
+      color: white;
+    }
+    .more-btn:hover {
+      background-color: white;
+      color: #660000 !important;
+      transform: scale(1.05);
+    }
+    .dropdown-content {
+      display: none;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+    }
+    .dropdown.open .dropdown-content {
+      display: block;
+    }
+  </style>
+</head>
+<body class="text-white">
+
+ <!-- Navbar -->
+ <nav class="shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between h-16 items-center">
+      <div class="flex items-center space-x-3">
+        <img src="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png" class="h-10 w-auto" alt="Logo">
+        <h1 class="text-xl font-bold text-white animate-pulse">STAR ENGINEERING</h1>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6 items-center text-white font-medium">
+        <a href="https://stareng.co.in" class="nav-link">Home</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/products/" class="nav-link">Products</a>
+        <div class="relative dropdown">
+          <button onclick="toggleDropdown()" class="nav-link more-btn focus:outline-none">More ▾</button>
+          <div id="dropdownContent" class="dropdown-content absolute right-0 mt-2 w-56 text-white p-2 shadow z-10">
+            <a href="/contact/" class="block nav-btn">Contact</a>
+            <a href="/terms/" class="block nav-btn">Terms & Conditions</a>
+            <a href="/privacy/" class="block nav-btn">Privacy Policy</a>
+            <a href="/business/" class="block nav-btn">Business Policy</a>
+            <a href="/cancellation/" class="block nav-btn">Cancellation Policy</a>
+            <a href="/feedback/" class="block nav-btn">Feedback</a>
+          </div>
+        </div>
+        <a href="/login/" class="nav-link bg-red-700 hover:bg-white hover:text-red-800 transition">Login</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button onclick="toggleMobileMenu()" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="md:hidden hidden px-4 pb-4">
+    <a href="https://stareng.co.in" class="block nav-link">Home</a>
+    <a href="/about/" class="block nav-link">About</a>
+    <a href="/products/" class="block nav-link">Products</a>
+    <a href="/contact/" class="block nav-link">Contact</a>
+    <a href="/terms/" class="block nav-link">Terms & Conditions</a>
+    <a href="/privacy/" class="block nav-link">Privacy Policy</a>
+    <a href="/business/" class="block nav-link">Business Policy</a>
+    <a href="/cancellation/" class="block nav-link">Cancellation Policy</a>
+    <a href="/feedback/" class="block nav-link">Feedback</a>
+    <a href="/login/" class="block nav-link bg-red-700 hover:bg-white hover:text-red-800 transition mt-2">Login</a>
+  </div>
+</nav>
+
+<!-- About Hero -->
+<section class="text-center py-16 px-4" data-aos="fade-down">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-white to-red-500 animate-pulse drop-shadow">
+      About STAR ENGINEERING
+    </h2>
+    <p class="text-lg text-gray-300 mt-6 leading-relaxed">
+      At STAR ENGINEERING, we don’t just supply iron and steel — we supply the foundation of tomorrow’s infrastructure.
+    </p>
+  </div>
+</section>
+
+<!-- About Content -->
+<section class="max-w-6xl mx-auto px-6 pb-16 space-y-12 text-gray-200">
+  <!-- Sections -->
+  <div data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-red-300 mb-3">🌟 Who We Are</h3>
+    <p>STAR ENGINEERING is a trusted and forward-thinking name in the iron and steel industry. Based in Mumbai, we specialize in supplying high-quality structural metal products to meet the evolving needs of India’s infrastructure. From retail sales to large-scale industrial supply, our commitment to quality, customer satisfaction, and innovation sets us apart. With a strong reputation built over the years, STAR ENGINEERING continues to grow as a reliable partner for builders, developers, contractors, and businesses. Our brand reflects strength, trust, and progress — delivering not just steel, but a promise of durability and performance.</p>
+  </div>
+  <div data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-red-300 mb-3">🏗️ Our Legacy</h3>
+    <p>Since our foundation, STAR ENGINEERING has been powered by a passion for excellence in the iron and steel trade. What started as a local business has grown into a recognized name in the industry through dedication, consistency, and superior customer service. We have proudly served thousands of customers across sectors with products that meet both Indian standards and client expectations. Our legacy is built on reliability, timely delivery, and forging long-term relationships. Every order reflects our commitment to heritage and growth — where tradition meets innovation to serve India’s ever-growing infrastructure needs.</p>
+  </div>
+  <div data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-red-300 mb-3">🔧 What We Offer</h3>
+    <p>We provide a comprehensive range of iron and steel products tailored for every construction and fabrication need. Our offerings include I Beams, Channels, Angles, TMT Bars, Plates, Flats, Pipes, Tees, and Profile Sheets — all available in multiple sizes and grades. Whether you need materials for residential, commercial, or industrial projects, we ensure precise specifications, fast availability, and competitive pricing. With a focus on product quality and customer satisfaction, STAR ENGINEERING delivers materials that are built to last. Our inventory is well-stocked and managed to fulfill bulk and urgent orders with ease.</p>
+  </div>
+  <div data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-red-300 mb-3">🎯 Our Mission</h3>
+    <p>At STAR ENGINEERING, our mission is clear: To empower India’s growth by providing strong, sustainable, and reliable metal solutions that shape the future. We aim to be a cornerstone of quality in construction by offering products that meet the highest safety and durability standards. Through responsible sourcing, smart logistics, and continuous innovation, we seek to become the preferred choice for contractors and businesses. We believe that every project, big or small, deserves the best materials — and we strive every day to make that possible with unmatched service and commitment.</p>
+  </div>
+  <div data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-red-300 mb-3">🚀 Our Vision</h3>
+    <p>We envision STAR ENGINEERING becoming India’s most admired, digitally-driven steel distribution brand. Our goal is to create a seamless and customer-friendly experience through digital tools, real-time updates, and efficient delivery systems. We are focused on modernizing the metal supply chain by combining technology with traditional business values. By 2030, we aim to expand nationwide and build an ecosystem where every builder, developer, or fabricator finds trust and transparency in every deal. Our vision is not just to supply steel — but to be a growth partner in India’s infrastructure revolution.</p>
+  </div>
+  <div data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-red-300 mb-3">🎯 Our Core Objectives</h3>
+    <ul class="list-disc ml-6 space-y-2">
+      <li>✅ Ensure 100% customer satisfaction through reliable service and responsive support.</li>
+      <li>🔒 Maintain zero tolerance for quality compromise in all products and processes.</li>
+      <li>💰 Offer transparent, real-time pricing to promote trust and clarity.</li>
+      <li>🚛 Provide on-time deliveries with efficient logistics and order tracking.</li>
+      <li>🏗️ Support clients in both small-scale and large-scale projects with equal commitment.</li>
+      <li>🧾 Maintain clear documentation and billing, ensuring smooth transactions.</li>
+      <li>📞 Offer personalized consultation and after-sales service for long-term partnerships.</li>
+      <li>📈 Constantly improve and innovate in operations, product range, and customer experience.</li>
+    </ul>
+  </div>
+  <div data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-red-300 mb-3">💡 Why Choose Us?</h3>
+    <p>With 10+ years of experience and 1000+ satisfied clients, STAR ENGINEERING brings reliability and expertise to every project. Our customer-first approach ensures personalized service, quick quotations, and accurate dispatches. We offer powerful logistical support and cater to bulk as well as custom requirements with ease. Our reputation is built on timely delivery, premium quality, and fair pricing. We believe in building relationships, not just making sales. Whether you’re a contractor, dealer, or end-user — choosing STAR ENGINEERING means choosing trust, quality, and long-term value. We deliver more than products — we deliver confidence.</p>
+  </div>
+  <div data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-red-300 mb-3">🤝 Let’s Build Together</h3>
+    <p>From skyscrapers to dream homes, STAR ENGINEERING is ready to power your vision with strength and precision. We understand that every construction project has unique challenges, and we’re here to make your metal procurement simple, reliable, and stress-free. Our dedicated team is always available for guidance, support, and consultation. With our wide product range, transparent process, and customer-first service, we become your growth partner from day one. Let’s build the future of India — one beam, one bar, and one project at a time, with STAR ENGINEERING by your side.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black text-white py-6 text-center mt-10">
+  <p>&copy; 2025 STAR ENGINEERING. All rights reserved.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 600 });
+
+  function toggleDropdown() {
+    document.querySelector('.dropdown').classList.toggle('open');
+  }
+
+  function toggleDropdownMobile() {
+    document.getElementById("dropdownContentMobile").classList.toggle("hidden");
+  }
+
+  function toggleMobileMenu() {
+    document.getElementById("mobileMenu").classList.toggle("hidden");
+  }
+
+  // Close desktop dropdown when clicking outside
+  window.addEventListener('click', function (e) {
+    const dropdown = document.querySelector('.dropdown');
+    const button = dropdown.querySelector('button');
+    if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAR ENGINEERING - Payment</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:linear-gradient(to bottom, #4d0b0b, #000000);
+            text-align: center;
+            padding: 183px 50px;
+            height: auto;
+            animation: gradientMove 10s ease infinite;
+            padding: 184px 0;
+        }
+        .container {
+            max-width: 320px;
+            height: auto;
+            margin: auto;
+            background:rgba(255, 233, 233, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        h2 {
+            color: #dddddd;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .button {
+            width: 90%;
+            background: white;
+            color: #8B0000;
+            border: 2px solid #8B0000;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+        .button:hover {
+            background: #b30000;
+            color: white;
+            transform: scale(1.06);
+        }
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            color: #b30000;
+            border: 2px solid #b30000;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .home-button:hover {
+            background: #b30000;
+            color: white;
+        }
+        .button img {
+            height: 20px; /* Adjust image size to match emoji size */
+            vertical-align: middle;
+            margin-right: 10px; /* Space between image and text */
+        }
+    </style>
+</head>
+<body>
+    <h2>💳 Choose Payment Method</h2>
+    <div class="container">
+        <div class="button-container">
+            <a href="/neft/" class="button">🌐 NEFT / RTGS / IMPS</a>
+            <a href="/upi/" class="button"><img src="https://i.postimg.cc/VNBcScMf/output-onlinepngtools.png" alt="UPI Image">BHIM UPI</a>
+            <a href="/cheque/" class="button">📄 Cheque / DD</a>
+        </div>
+    </div>
+</body>
+</html>

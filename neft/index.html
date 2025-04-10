@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Payment - STAR ENGINEERING</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/ncXWNQFb/output-onlinepngtools-2-1.png">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #4d0b0b, #000000);
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        .container {
+            max-width: 350px;
+            margin: auto;
+            background: rgba(255, 233, 233, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .bank-section {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .bank-section .value {
+            font-weight: bold;
+            color: black;
+            flex-grow: 1;
+        }
+        .copy-btn {
+            background: Green; 
+            color: White; 
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+            min-width: 65px;
+        }
+        .copy-btn.copied {
+            background: orange; /* Light orange */
+            color: white; /* Dark orange */
+        }
+        .verified-message {
+            margin-top: 10px;
+            padding: 8px;
+            background: #d4edda;
+            color: #155724;
+            font-weight: bold;
+            border-radius: 5px;
+		text-align: center
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            color: #b30000;
+            border: 2px solid #b30000;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background: #b30000;
+            color: white;
+        }
+        h2 {
+            color: #fffcfc;
+            
+        }
+    </style>
+    <script>
+        function copyText(text, btnId) {
+            navigator.clipboard.writeText(text).then(() => {
+                const copyBtn = document.getElementById(btnId);
+                copyBtn.innerText = "Copied";
+                copyBtn.classList.add("copied");
+
+                setTimeout(() => {
+                    copyBtn.innerText = "Copy";
+                    copyBtn.classList.remove("copied");
+                }, 2000);
+            });
+        }
+        
+    </script>
+</head>
+<body>
+    <h2 color:white; >🌐 NEFT / RTGS / IMPS</h2>
+    <div class="container">
+        <div>
+            <span>👤 Account Holder's Name:</span>
+            <div class="bank-section">
+                <div class="value">STAR ENGINEERING</div>
+                <button id="copy-name" class="copy-btn" onclick="copyText('STAR ENGINEERING', 'copy-name')">Copy</button>
+            </div>
+        </div>
+        <div>
+            <span>🏦 Bank Name:</span>
+            <div class="bank-section">
+                <div class="value">Punjab National Bank Ltd.</div>
+            </div>
+        </div>
+        <div>
+            <span>💳 Account Number:</span>
+            <div class="bank-section">
+                <div class="value">05211011003149</div>
+                <button id="copy-acno" class="copy-btn" onclick="copyText('05211011003149', 'copy-acno')">Copy</button>
+            </div>
+        </div>
+        <div>
+            <span>🔢 IFSC Code:</span>
+            <div class="bank-section">
+                <div class="value">PUNB0052110</div>
+                <button id="copy-ifsc" class="copy-btn" onclick="copyText('PUNB0052110', 'copy-ifsc')">Copy</button>
+            </div>
+        </div>
+        <div>
+            <span>📍 Branch:</span>
+            <div class="bank-section">
+                <div class="value">Goregaon (E), Mumbai</div>
+            </div>
+        </div><br>
+        <div class="verified-message">✔ Secure & Verified Details</div>
+    </div>
+</body>
+</html>
